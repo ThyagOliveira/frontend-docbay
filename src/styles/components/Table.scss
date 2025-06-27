@@ -1,0 +1,177 @@
+@use '../variables.scss' as *;
+
+.table-wrapper {
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 4px;
+  margin: 0.625rem 0;
+
+  .table {
+    border-radius: 5px;
+    font-size: $font-size-sm;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+
+    td,
+    th {
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    td {
+      border-right: 1px solid $light-color;
+      font-size: $font-size-sm;
+      word-wrap: break-word;
+      white-space: normal;
+      max-width: 20rem;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      color: white;
+      background: $secondary-color;
+    }
+
+    thead th:nth-child(odd) {
+      color: white;
+      background: $primary-color;
+    }
+
+    tr:nth-child(even) {
+      background: $light-color;
+    }
+
+    tfoot {
+      background-color: #f4f4f4;
+      border-top: 1px solid $gray-light;
+    }
+
+    tfoot,
+    td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    button {
+      background-color: unset;
+      border: none;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button:hover {
+      svg,
+      svg path,
+      svg g path {
+        stroke: $secondary-color;
+      }
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.625rem;
+
+      button {
+        background-color: $secondary-color;
+        color: white;
+        border: none;
+        padding: 0.5rem 0.75rem;
+        margin: 0 0.313rem;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $secondary-color-hover;
+        }
+
+        &:disabled {
+          background-color: $disabled-color;
+          cursor: not-allowed;
+        }
+      }
+
+      span {
+        margin: 0 0.625rem;
+        font-size: $font-size-medium;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .table-wrapper {
+    padding: 0.625rem;
+  }
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 0.625rem;
+
+    thead {
+      display: none;
+    }
+
+    tbody tr {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.9rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    tbody td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.625rem;
+      border-bottom: 1px solid #f0f0f0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    tbody td[data-label]:before {
+      content: attr(data-label);
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+
+    tfoot {
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      margin-top: 2rem;
+    }
+    tfoot .pagination {
+      button {
+        font-size: $font-size-xs;
+      }
+    }
+  }
+}
