@@ -1,0 +1,55 @@
+@use '../variables.scss' as *;
+@use 'sass:color';
+
+.search-box {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 29rem;
+  width: 100vw;
+  margin: 0 auto;
+  gap: 0.5rem;
+
+  &_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $primary-color-hover;
+    }
+
+    svg,
+    svg path,
+    svg g path {
+      fill: white;
+      stroke: white;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &_input {
+    padding: 0.625rem 0.938rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    margin-left: 0.625rem;
+    font-size: $font-size-medium;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+    }
+
+    &::placeholder {
+      color: $primary-color;
+    }
+  }
+}
