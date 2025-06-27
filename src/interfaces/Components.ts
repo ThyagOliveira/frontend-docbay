@@ -11,7 +11,9 @@ export interface IColumn {
 export interface ITableProps {
   data: any[]
   columns: IColumn[]
-  pageSize?: number
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
   handleGithubUserClick: (githubUser: IGithubUser) => void
 }
 
