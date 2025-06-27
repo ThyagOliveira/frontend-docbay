@@ -1,0 +1,49 @@
+@use '../variables.scss' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $dark-color;
+  padding: 10px 20px;
+  color: white;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .nav {
+    ul {
+      display: flex;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-left: 20px;
+
+        &.logout {
+          color: white;
+          text-decoration: none;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        a {
+          color: white;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
