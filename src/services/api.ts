@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios'
+import type { IFetchUserDataOptions } from '../interfaces/Requests'
 
 const axiosInstance = axios.create({
   baseURL: 'http://0.0.0.0:3000',
@@ -27,10 +28,7 @@ export const addUserData = async (username: string) => {
   }
 }
 
-export const fetchUserData = async (filters?: {
-  location?: string
-  language?: string
-}) => {
+export const fetchUserData = async (filters?: IFetchUserDataOptions) => {
   try {
     const response = await axiosInstance.get(`/github/`, {
       params: filters || {}

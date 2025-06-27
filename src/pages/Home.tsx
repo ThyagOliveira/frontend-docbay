@@ -15,7 +15,12 @@ import '../styles/pages/Home.scss'
 export default function Home() {
   const [searchText, setSearchText] = useState<string>('')
   const [filterType, setFilterType] = useState<FilterType>('location')
-  const [githubUsers, getGithubUsers] = useGithubUsers(searchText, filterType)
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const [githubUsers, getGithubUsers, meta] = useGithubUsers(
+    searchText,
+    filterType,
+    currentPage
+  )
   const [selectedGithubUser, setSelectedGithubUser] =
     useState<IGithubUser | null>(null)
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false)
@@ -64,6 +69,9 @@ export default function Home() {
         )
       }
     ],
+    currentPage: meta.currentPage,
+    totalPages: meta.lastPage,
+    onPageChange: setCurrentPage,
     handleGithubUserClick: (user) => handleGithubUserClick(user)
   }
 
