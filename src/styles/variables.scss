@@ -1,0 +1,19 @@
+@use 'sass:color';
+
+$font-size-bg: 24px;
+$font-size: 16px;
+$font-size-medium: 14px;
+$font-size-sm: 12px;
+$font-size-xs: 10px;
+
+$primary-color: #324960;
+$secondary-color: #4fc3a1;
+$light-color: #f8f8f8;
+$dark-color: #333;
+$gray-light: #d6d6d6;
+$disabled-color: #bdc3c7;
+$success-color: green;
+$danger-color: red;
+
+$primary-color-hover: color.scale($primary-color, $lightness: -20%);
+$secondary-color-hover: color.scale($secondary-color, $lightness: -20%);
